@@ -39,7 +39,7 @@ const deleteGoal = asyncHandler(async (req, res) => {
     throw new Error(`Couldn't find Goal with id ${req.params.id}`);
   }
   const deletedGoal = await Goal.deleteOne(findingId);
-  res.status(200).json({ success: true, goal: deletedGoal });
+  res.status(200).json({ success: true, goal: deletedGoal, id: req.params.id });
 });
 
 module.exports = { getGoals, setGoal, deleteGoal, updateGoal };
